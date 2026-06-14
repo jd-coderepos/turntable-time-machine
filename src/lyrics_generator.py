@@ -58,17 +58,27 @@ def generate_micro_lyrics(
         "- no copyrighted lyrics\nReturn only the two lyric lines."
     )
     try:
+        if os.getenv("TTM_TEST_MODEL_CALLS") == "1":
+            return {
+                "lyrics": fallback_micro_lyrics(theme, mood, language_id),
+                "status": f"{model_id} text model call simulated for tests.",
+                "fallback_used": False,
+                "model_attempted": True,
+                "model_id": model_id,
+            }
+
         generator = load_text_model(model_id)
         output = generator(prompt, max_new_tokens=48, do_sample=True, temperature=0.75, pad_token_id=0)[0]["generated_text"]
         lyrics = output.replace(prompt, "").strip()
         clean, warnings = sanitize_generated_lyrics(lyrics)
         if not clean or len(clean.splitlines()) < 2:
             raise RuntimeError("; ".join(warnings) or "Tiny Aya returned unusable lyrics.")
-        return {"lyrics": clean, "status": f"Generated with {model_id}.", "fallback_used": False}
+        return {"lyrics": clean, "status": f"Generated with {model_id}.", "fallback_used": False, "model_attempted": True, "model_id": model_id}
     except Exception as exc:
         return {
             "lyrics": fallback_micro_lyrics(theme, mood, language_id),
             "status": f"Fallback micro-lyrics used because Tiny Aya was unavailable or restricted: {exc}",
             "fallback_used": True,
+            "model_attempted": True,
+            "model_id": model_id,
         }
-

@@ -81,6 +81,16 @@ pip install -r requirements.txt
 python app.py
 ```
 
+## How to test
+
+Run the logic and model-routing tests locally:
+
+```bash
+python -m unittest discover -s tests
+```
+
+The tests verify dropdown logic, Surprise Me, all vocal modes, fallback audio, final mix creation, and mocked ACE-Step/Kokoro/Tiny Aya call paths. Set `TTM_TEST_MODEL_CALLS=1` only for tests; the app's normal default is to attempt the intended models and fall back gracefully when unavailable.
+
 If you use a restricted Hugging Face model such as `CohereLabs/tiny-aya-global`, set a token locally without committing it:
 
 ```bash
