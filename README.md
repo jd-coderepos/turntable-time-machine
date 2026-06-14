@@ -1,7 +1,7 @@
 ---
 title: Turntable Time Machine
 emoji: 🎛️
-colorFrom: amber
+colorFrom: yellow
 colorTo: purple
 sdk: gradio
 sdk_version: 5.0.0
