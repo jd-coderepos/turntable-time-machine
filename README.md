@@ -138,4 +138,3 @@ This project was developed with Codex assistance. Codex-attributed commits are i
 ## Social post draft
 
 I built Turntable Time Machine for #BuildSmall: a tiny AI radio console that creates original cross-era music postcards. Pick a source decade, remix it through another era, choose a fictional DJ host and broadcast language, and generate a short original audio segment with optional micro-lyrics. Built with Gradio + small models under 32B.
-
