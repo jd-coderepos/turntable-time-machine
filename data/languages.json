@@ -1,0 +1,41 @@
+{
+  "languages": [
+    {
+      "id": "en",
+      "label": "English",
+      "native_label": "English",
+      "tts_supported": true,
+      "music_prompt_supported": true,
+      "intro_style_note": "Use warm English radio phrasing.",
+      "safety_suffix": "No vocals unless requested. No copyrighted melody. No artist imitation."
+    },
+    {
+      "id": "de",
+      "label": "German",
+      "native_label": "Deutsch",
+      "tts_supported": false,
+      "music_prompt_supported": true,
+      "intro_style_note": "Use concise German radio phrasing.",
+      "safety_suffix": "Keine Cover, keine bekannten Melodien, keine Kuenstlerimitation."
+    },
+    {
+      "id": "fr",
+      "label": "French",
+      "native_label": "Francais",
+      "tts_supported": false,
+      "music_prompt_supported": true,
+      "intro_style_note": "Use concise French radio phrasing.",
+      "safety_suffix": "Pas de reprises, pas de melodies connues, pas d'imitation d'artiste."
+    },
+    {
+      "id": "es",
+      "label": "Spanish",
+      "native_label": "Espanol",
+      "tts_supported": false,
+      "music_prompt_supported": true,
+      "intro_style_note": "Use concise Spanish radio phrasing.",
+      "safety_suffix": "Sin covers, sin melodias famosas, sin imitacion de artistas."
+    }
+  ]
+}
+

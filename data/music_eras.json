@@ -1,0 +1,344 @@
+{
+  "eras": [
+    {
+      "id": "1960s",
+      "label": "1960s",
+      "display_name": "1960s: Soul, Surf, Folk & Psychedelia",
+      "summary": "Warm analog recordings, live bands, vocal-forward arrangements, early studio experimentation, and the rise of soul, rock, folk, and psychedelic music.",
+      "genres": [
+        {
+          "id": "motown_soul",
+          "label": "Motown-inspired soul",
+          "safe_prompt_style": "1960s soul-inspired warm chord progression, handclaps, walking bassline, tight live drums, brass accents, call-and-response energy",
+          "bpm_range": [95, 125],
+          "instruments": ["live drums", "electric bass", "brass section", "piano", "handclaps", "backing vocal texture"],
+          "sonic_traits": ["warm", "rhythmic", "melodic", "human", "uplifting"],
+          "avoid": "Do not imitate specific Motown songs, melodies, lyrics, singers, or arrangements."
+        },
+        {
+          "id": "psychedelic_rock",
+          "label": "Psychedelic rock",
+          "safe_prompt_style": "1960s psychedelic rock-inspired electric guitars, swirling organ, loose live drums, tape delay, dreamy reverb, experimental studio atmosphere",
+          "bpm_range": [80, 120],
+          "instruments": ["electric guitar", "organ", "live drums", "bass guitar", "tape delay"],
+          "sonic_traits": ["dreamy", "swirling", "experimental", "analog", "trippy"],
+          "avoid": "Do not imitate specific psychedelic rock songs, bands, lyrics, or guitar riffs."
+        },
+        {
+          "id": "folk_pop",
+          "label": "Folk pop",
+          "safe_prompt_style": "1960s folk-pop-inspired acoustic guitar strumming, gentle bass, soft percussion, warm intimate room sound, nostalgic melodic movement",
+          "bpm_range": [70, 110],
+          "instruments": ["acoustic guitar", "upright bass", "light percussion", "harmonica-like texture", "soft strings"],
+          "sonic_traits": ["gentle", "intimate", "organic", "nostalgic"],
+          "avoid": "Do not imitate specific folk songs, lyrics, singers, or melodies."
+        },
+        {
+          "id": "surf_rock",
+          "label": "Surf rock",
+          "safe_prompt_style": "1960s surf-rock-inspired clean electric guitar, spring reverb, driving drums, bright bassline, beach-radio energy",
+          "bpm_range": [120, 160],
+          "instruments": ["clean electric guitar", "spring reverb", "live drums", "electric bass"],
+          "sonic_traits": ["bright", "driving", "reverby", "sunny", "retro"],
+          "avoid": "Do not imitate specific surf rock riffs or melodies."
+        }
+      ],
+      "nostalgia_textures": ["vinyl_warmth", "mono_radio", "tape_hiss", "live_room"],
+      "default_dj_personas": ["midnight_radio_curator", "velvet_disco_host"]
+    },
+    {
+      "id": "1970s",
+      "label": "1970s",
+      "display_name": "1970s: Disco, Funk, Prog & Early Electronic",
+      "summary": "Dancefloor grooves, lush strings, funk basslines, analog synths, longer arrangements, and the rise of club-oriented production.",
+      "genres": [
+        {
+          "id": "disco",
+          "label": "Disco",
+          "safe_prompt_style": "1970s disco-inspired four-on-the-floor drums, octave bassline, lush strings, rhythm guitar, piano stabs, glittering dancefloor atmosphere",
+          "bpm_range": [105, 130],
+          "instruments": ["drum kit", "electric bass", "strings", "rhythm guitar", "piano", "congas"],
+          "sonic_traits": ["groovy", "glossy", "danceable", "warm", "uplifting"],
+          "avoid": "Do not imitate specific disco songs, hooks, lyrics, basslines, or vocal arrangements."
+        },
+        {
+          "id": "funk",
+          "label": "Funk",
+          "safe_prompt_style": "1970s funk-inspired syncopated bassline, tight drums, wah guitar, brass punches, clavinet-style rhythm, energetic groove",
+          "bpm_range": [90, 120],
+          "instruments": ["electric bass", "tight drums", "wah guitar", "brass", "clavinet"],
+          "sonic_traits": ["syncopated", "tight", "earthy", "rhythmic", "playful"],
+          "avoid": "Do not imitate specific funk riffs, basslines, lyrics, or artists."
+        },
+        {
+          "id": "prog_rock",
+          "label": "Progressive rock",
+          "safe_prompt_style": "1970s progressive-rock-inspired analog synth layers, electric guitar, shifting sections, live drums, dramatic atmospheric build",
+          "bpm_range": [70, 140],
+          "instruments": ["electric guitar", "analog synth", "organ", "live drums", "bass guitar"],
+          "sonic_traits": ["expansive", "dramatic", "complex", "cinematic"],
+          "avoid": "Do not imitate specific progressive rock compositions or bands."
+        },
+        {
+          "id": "early_electronic",
+          "label": "Early electronic",
+          "safe_prompt_style": "1970s early-electronic-inspired analog sequencer pulses, warm synth arpeggios, minimal drum machine rhythm, cosmic atmosphere",
+          "bpm_range": [80, 125],
+          "instruments": ["analog sequencer", "modular synth", "early drum machine", "synth bass"],
+          "sonic_traits": ["cosmic", "minimal", "hypnotic", "analog", "futuristic-retro"],
+          "avoid": "Do not imitate specific electronic compositions, melodies, or artists."
+        }
+      ],
+      "nostalgia_textures": ["vinyl_crackle", "club_room", "analog_tape", "warm_master"],
+      "default_dj_personas": ["velvet_disco_host", "sunset_terrace_dj"]
+    },
+    {
+      "id": "1980s",
+      "label": "1980s",
+      "display_name": "1980s: Synth-pop, New Wave, Electro-funk & Arena Sound",
+      "summary": "Bright synths, gated drums, drum machines, glossy production, big choruses, electronic basslines, and MTV-era sonic drama.",
+      "genres": [
+        {
+          "id": "synth_pop",
+          "label": "Synth-pop",
+          "safe_prompt_style": "1980s synth-pop-inspired bright analog synth chords, electronic drums, pulsing bassline, gated snare, glossy nostalgic atmosphere",
+          "bpm_range": [95, 130],
+          "instruments": ["analog synth", "drum machine", "synth bass", "gated snare", "electric piano"],
+          "sonic_traits": ["glossy", "bright", "melodic", "nostalgic", "electronic"],
+          "avoid": "Do not imitate specific synth-pop songs, vocal melodies, lyrics, or artists."
+        },
+        {
+          "id": "new_wave",
+          "label": "New wave",
+          "safe_prompt_style": "1980s new-wave-inspired angular guitar, punchy bass, dry drum machine, bright synth accents, stylish energetic rhythm",
+          "bpm_range": [110, 150],
+          "instruments": ["electric guitar", "synth", "drum machine", "electric bass"],
+          "sonic_traits": ["angular", "cool", "stylish", "rhythmic", "bright"],
+          "avoid": "Do not imitate specific new wave songs, riffs, lyrics, or bands."
+        },
+        {
+          "id": "electro_funk",
+          "label": "Electro-funk",
+          "safe_prompt_style": "1980s electro-funk-inspired drum machine groove, slap bass or synth bass, vocoder-like texture, bright stabs, dancefloor energy",
+          "bpm_range": [105, 130],
+          "instruments": ["drum machine", "synth bass", "electric bass", "vocoder-like synth", "claps"],
+          "sonic_traits": ["robotic", "funky", "electric", "danceable", "playful"],
+          "avoid": "Do not imitate specific electro-funk hooks, basslines, or vocal phrases."
+        },
+        {
+          "id": "arena_rock",
+          "label": "Arena rock",
+          "safe_prompt_style": "1980s arena-rock-inspired big drums, wide electric guitars, anthemic chord progression, dramatic reverb, stadium-scale energy",
+          "bpm_range": [80, 130],
+          "instruments": ["electric guitar", "big drums", "bass guitar", "synth pad", "reverb"],
+          "sonic_traits": ["big", "anthemic", "dramatic", "wide", "powerful"],
+          "avoid": "Do not imitate specific arena rock songs, choruses, lyrics, or guitar riffs."
+        }
+      ],
+      "nostalgia_textures": ["cassette_warmth", "fm_radio", "vhs_glow", "gated_reverb"],
+      "default_dj_personas": ["neon_signal_host", "midnight_radio_curator"]
+    },
+    {
+      "id": "1990s",
+      "label": "1990s",
+      "display_name": "1990s: House, Techno, Grunge, Trip-hop & R&B",
+      "summary": "Club culture, underground electronic scenes, sample-based textures, alternative rock, atmospheric beats, and polished R&B grooves.",
+      "genres": [
+        {
+          "id": "deep_house",
+          "label": "Deep house",
+          "safe_prompt_style": "1990s deep-house-inspired four-on-the-floor drums, warm organ stabs, round bassline, soft pads, underground club atmosphere",
+          "bpm_range": [115, 125],
+          "instruments": ["drum machine", "organ stabs", "synth bass", "pads", "claps"],
+          "sonic_traits": ["warm", "hypnotic", "clubby", "smooth", "late-night"],
+          "avoid": "Do not imitate specific house tracks, samples, vocal hooks, or DJ signatures."
+        },
+        {
+          "id": "techno",
+          "label": "Techno",
+          "safe_prompt_style": "1990s techno-inspired driving kick, repetitive synth sequence, industrial percussion, minimal bass, dark warehouse atmosphere",
+          "bpm_range": [125, 145],
+          "instruments": ["drum machine", "synth sequence", "industrial percussion", "sub bass"],
+          "sonic_traits": ["driving", "minimal", "dark", "hypnotic", "mechanical"],
+          "avoid": "Do not imitate specific techno tracks, sequences, or producers."
+        },
+        {
+          "id": "trip_hop",
+          "label": "Trip-hop",
+          "safe_prompt_style": "1990s trip-hop-inspired downtempo breakbeat, dusty bass, moody keys, vinyl texture, cinematic smoky atmosphere",
+          "bpm_range": [70, 95],
+          "instruments": ["breakbeat drums", "electric piano", "sub bass", "vinyl texture", "strings pad"],
+          "sonic_traits": ["moody", "dusty", "cinematic", "slow", "smoky"],
+          "avoid": "Do not imitate specific trip-hop songs, samples, vocal melodies, or artists."
+        },
+        {
+          "id": "alt_grunge",
+          "label": "Alternative / grunge",
+          "safe_prompt_style": "1990s alternative-rock-inspired distorted guitars, live drums, heavy bass, raw room sound, melancholic chord movement",
+          "bpm_range": [80, 140],
+          "instruments": ["distorted guitar", "live drums", "bass guitar", "room reverb"],
+          "sonic_traits": ["raw", "heavy", "melancholic", "gritty", "emotional"],
+          "avoid": "Do not imitate specific grunge songs, riffs, lyrics, or singers."
+        },
+        {
+          "id": "rnb_90s",
+          "label": "90s R&B",
+          "safe_prompt_style": "1990s R&B-inspired smooth drum groove, warm electric piano, rounded bassline, soft chord extensions, polished late-night atmosphere",
+          "bpm_range": [75, 105],
+          "instruments": ["drum machine", "electric piano", "bass", "soft pad", "finger snaps"],
+          "sonic_traits": ["smooth", "polished", "romantic", "warm", "groovy"],
+          "avoid": "Do not imitate specific R&B songs, vocal runs, lyrics, or artists."
+        }
+      ],
+      "nostalgia_textures": ["club_pa", "cd_master", "vhs_glow", "vinyl_dust"],
+      "default_dj_personas": ["warehouse_announcer", "block_party_selector", "midnight_radio_curator"]
+    },
+    {
+      "id": "2000s",
+      "label": "2000s",
+      "display_name": "2000s: Pop, Garage, Electroclash, Indie & Digital Club",
+      "summary": "Digital production, shiny pop compression, club beats, indie guitars, early internet aesthetics, and crossover electronic sounds.",
+      "genres": [
+        {
+          "id": "french_house_inspired",
+          "label": "Filtered disco house",
+          "safe_prompt_style": "2000s filtered-disco-house-inspired compressed drums, sidechain pulse, chopped disco-like rhythm guitar texture, bright filter sweeps, euphoric club energy",
+          "bpm_range": [118, 130],
+          "instruments": ["compressed drums", "filtered synth", "bassline", "rhythm guitar-like texture", "sidechain pad"],
+          "sonic_traits": ["compressed", "euphoric", "filtered", "danceable", "glossy"],
+          "avoid": "Do not imitate specific French house artists, samples, melodies, robot voices, or hooks."
+        },
+        {
+          "id": "garage_2step",
+          "label": "UK garage / 2-step",
+          "safe_prompt_style": "2000s UK-garage-inspired shuffled 2-step drums, sub bass, chopped vocal-like texture without words, glossy chords, nighttime city energy",
+          "bpm_range": [125, 138],
+          "instruments": ["shuffled drums", "sub bass", "chord stabs", "vocal-like chops", "rim clicks"],
+          "sonic_traits": ["shuffled", "bouncy", "urban", "slick", "nighttime"],
+          "avoid": "Do not imitate specific garage tracks, vocal samples, lyrics, or MC phrases."
+        },
+        {
+          "id": "indie_rock_2000s",
+          "label": "2000s indie rock",
+          "safe_prompt_style": "2000s indie-rock-inspired jangly guitars, steady drums, melodic bassline, dry vocal-band arrangement without vocals, energetic rehearsal-room sound",
+          "bpm_range": [100, 160],
+          "instruments": ["electric guitar", "live drums", "bass guitar", "simple synth accent"],
+          "sonic_traits": ["jangly", "energetic", "raw", "youthful", "dry"],
+          "avoid": "Do not imitate specific indie rock songs, riffs, lyrics, or bands."
+        },
+        {
+          "id": "y2k_pop",
+          "label": "Y2K pop",
+          "safe_prompt_style": "2000s Y2K-pop-inspired glossy digital drums, bright synth bass, sparkling pads, compressed pop arrangement, futuristic early-digital shine",
+          "bpm_range": [95, 130],
+          "instruments": ["digital drums", "synth bass", "bright pads", "pluck synth", "claps"],
+          "sonic_traits": ["glossy", "digital", "bright", "playful", "compressed"],
+          "avoid": "Do not imitate specific pop songs, lyrics, vocal melodies, or artists."
+        }
+      ],
+      "nostalgia_textures": ["cd_skip", "mp3_compression", "early_digital_gloss", "club_pa"],
+      "default_dj_personas": ["neon_signal_host", "sunset_terrace_dj"]
+    },
+    {
+      "id": "2010s",
+      "label": "2010s",
+      "display_name": "2010s: EDM, Trap, Alt-pop & Streaming Era",
+      "summary": "Festival drops, trap drums, polished streaming-era pop, bright synths, huge low end, and maximal digital production.",
+      "genres": [
+        {
+          "id": "festival_edm",
+          "label": "Festival EDM",
+          "safe_prompt_style": "2010s festival-EDM-inspired big build-up, sidechained synth chords, four-on-the-floor kick, wide supersaw lead, euphoric drop energy",
+          "bpm_range": [124, 130],
+          "instruments": ["supersaw synth", "kick drum", "snare build", "sidechain pad", "sub bass"],
+          "sonic_traits": ["huge", "euphoric", "bright", "maximal", "festival"],
+          "avoid": "Do not imitate specific EDM drops, melodies, vocal hooks, or producers."
+        },
+        {
+          "id": "trap_pop",
+          "label": "Trap-pop",
+          "safe_prompt_style": "2010s trap-pop-inspired crisp hi-hats, deep 808 bass, sparse atmospheric chords, snappy snare, moody modern pop energy",
+          "bpm_range": [70, 150],
+          "instruments": ["808 bass", "hi-hats", "snare", "atmospheric pad", "pluck synth"],
+          "sonic_traits": ["sparse", "heavy", "moody", "modern", "crisp"],
+          "avoid": "Do not imitate specific trap songs, flows, lyrics, vocal melodies, or producers."
+        },
+        {
+          "id": "alt_pop",
+          "label": "Alt-pop",
+          "safe_prompt_style": "2010s alt-pop-inspired minimal beat, intimate synth texture, soft bass, unusual percussion, emotional restrained atmosphere",
+          "bpm_range": [70, 115],
+          "instruments": ["minimal drums", "soft synth", "sub bass", "vocal-like pad without lyrics", "unusual percussion"],
+          "sonic_traits": ["intimate", "minimal", "cool", "emotional", "polished"],
+          "avoid": "Do not imitate specific alt-pop singers, lyrics, melodies, or production signatures."
+        },
+        {
+          "id": "future_bass",
+          "label": "Future bass",
+          "safe_prompt_style": "2010s future-bass-inspired bright detuned chords, sidechain movement, chopped vocal-like texture without words, punchy drums, emotional digital glow",
+          "bpm_range": [70, 160],
+          "instruments": ["detuned synth chords", "sidechain pad", "punchy drums", "sub bass", "vocal-like chop"],
+          "sonic_traits": ["glowing", "emotional", "wide", "bouncy", "digital"],
+          "avoid": "Do not imitate specific future bass drops, hooks, vocal samples, or producers."
+        }
+      ],
+      "nostalgia_textures": ["streaming_master", "festival_pa", "smartphone_speaker", "digital_glow"],
+      "default_dj_personas": ["neon_signal_host", "sunset_terrace_dj", "warehouse_announcer"]
+    },
+    {
+      "id": "2020s",
+      "label": "2020s",
+      "display_name": "2020s: Hyperpop, Amapiano, Lo-fi, Bedroom Pop & AI-era Electronic",
+      "summary": "Platform-native music culture, genre blending, short-form hooks, bedroom production, global club rhythms, and experimental AI-era textures.",
+      "genres": [
+        {
+          "id": "hyperpop",
+          "label": "Hyperpop",
+          "safe_prompt_style": "2020s hyperpop-inspired distorted synths, bright pitched textures without lyrics, glitchy percussion, fast digital edits, maximal playful energy",
+          "bpm_range": [130, 170],
+          "instruments": ["distorted synth", "glitch percussion", "pitched texture", "808 bass", "digital effects"],
+          "sonic_traits": ["glitchy", "maximal", "bright", "chaotic", "playful"],
+          "avoid": "Do not imitate specific hyperpop artists, vocal styles, lyrics, or melodies."
+        },
+        {
+          "id": "amapiano_inspired",
+          "label": "Amapiano-inspired groove",
+          "safe_prompt_style": "2020s amapiano-inspired log-drum-like bass pattern, relaxed percussion, airy chords, rolling groove, warm late-night dance atmosphere",
+          "bpm_range": [110, 115],
+          "instruments": ["log-drum-like bass", "soft percussion", "airy keys", "shakers", "sub bass"],
+          "sonic_traits": ["rolling", "warm", "relaxed", "danceable", "deep"],
+          "avoid": "Do not imitate specific amapiano songs, vocal chants, melodies, or producers."
+        },
+        {
+          "id": "lofi_chill",
+          "label": "Lo-fi chill",
+          "safe_prompt_style": "2020s lo-fi-chill-inspired dusty drums, soft jazz-like chords, warm bass, tape noise, relaxed study-room atmosphere",
+          "bpm_range": [65, 95],
+          "instruments": ["dusty drums", "electric piano", "soft bass", "vinyl noise", "tape texture"],
+          "sonic_traits": ["dusty", "calm", "warm", "intimate", "relaxed"],
+          "avoid": "Do not imitate specific lo-fi tracks, samples, melodies, or channels."
+        },
+        {
+          "id": "bedroom_pop",
+          "label": "Bedroom pop",
+          "safe_prompt_style": "2020s bedroom-pop-inspired soft synths, muted drums, warm guitar texture, intimate DIY production, dreamy nostalgic mood",
+          "bpm_range": [75, 115],
+          "instruments": ["muted drums", "soft synth", "warm guitar", "bass", "room texture"],
+          "sonic_traits": ["intimate", "dreamy", "DIY", "soft", "nostalgic"],
+          "avoid": "Do not imitate specific bedroom-pop artists, lyrics, vocal melodies, or songs."
+        },
+        {
+          "id": "ai_electronic",
+          "label": "AI-era electronic",
+          "safe_prompt_style": "2020s AI-era electronic-inspired evolving synth textures, generative arpeggios, clean sub bass, glitch details, futuristic emotional atmosphere",
+          "bpm_range": [90, 140],
+          "instruments": ["evolving synth", "generative arpeggio", "sub bass", "glitch percussion", "ambient pad"],
+          "sonic_traits": ["futuristic", "evolving", "clean", "strange", "emotional"],
+          "avoid": "Do not imitate specific AI-generated tracks, artists, or copyrighted material."
+        }
+      ],
+      "nostalgia_textures": ["clean_digital", "phone_speaker", "shortform_platform", "glitch_artifact"],
+      "default_dj_personas": ["neon_signal_host", "block_party_selector"]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "dj_personas": [
+    {
+      "id": "midnight_radio_curator",
+      "name": "The Midnight Radio Curator",
+      "description": "A warm late-night radio host with reflective, nostalgic energy.",
+      "voice_direction": "calm, intimate, poetic, warm, slightly smoky",
+      "intro_template": "Good evening, time travelers. Tonight we are taking {source_era} {source_genre} and sending it through the glow of {remix_era} {remix_genre}. Let the record spin from another timeline.",
+      "best_for": ["nostalgic", "dreamy", "emotional", "lo-fi", "soul", "trip-hop"],
+      "avoid": "Do not imitate any real radio host, broadcaster, or celebrity voice."
+    },
+    {
+      "id": "velvet_disco_host",
+      "name": "The Velvet Disco Host",
+      "description": "A glittery, smooth dancefloor host with 1970s club energy.",
+      "voice_direction": "smooth, playful, glamorous, upbeat, dancefloor-oriented",
+      "intro_template": "Slide onto the floor, travelers. We are polishing {source_era} {source_genre} under the mirrorball and spinning it into {remix_era} {remix_genre}.",
+      "best_for": ["disco", "funk", "house", "dance", "uplifting"],
+      "avoid": "Do not imitate any specific disco DJ, radio personality, or performer."
+    },
+    {
+      "id": "warehouse_announcer",
+      "name": "The Warehouse Announcer",
+      "description": "A high-energy underground club announcer with 1990s rave atmosphere.",
+      "voice_direction": "energetic, punchy, underground, urgent, club-focused",
+      "intro_template": "Lock in, time crew. We have pulled {source_era} {source_genre} from the archive and wired it straight into a {remix_era} {remix_genre} warehouse signal.",
+      "best_for": ["techno", "house", "garage", "festival EDM", "rave"],
+      "avoid": "Do not imitate any specific rave MC, DJ, or artist catchphrase."
+    },
+    {
+      "id": "block_party_selector",
+      "name": "The Block Party Selector",
+      "description": "A rhythmic, friendly mixtape-style host with community party energy.",
+      "voice_direction": "confident, rhythmic, warm, conversational, playful",
+      "intro_template": "All right, time travelers, this one is for the block. We are flipping {source_era} {source_genre} into a {remix_era} {remix_genre} groove made for the speakers outside.",
+      "best_for": ["funk", "R&B", "hip-hop-adjacent grooves", "garage", "dance-pop"],
+      "avoid": "Do not imitate any specific hip-hop DJ, MC, voice tag, or catchphrase."
+    },
+    {
+      "id": "sunset_terrace_dj",
+      "name": "The Sunset Terrace DJ",
+      "description": "A relaxed coastal DJ persona with warm, elegant, open-air evening energy.",
+      "voice_direction": "smooth, relaxed, breezy, elegant, sunset-club atmosphere",
+      "intro_template": "Welcome back to the edge of the evening. We are taking {source_era} {source_genre} and drifting it into a {remix_era} {remix_genre} sunset mix.",
+      "best_for": ["deep house", "disco", "lo-fi", "chill", "bedroom pop"],
+      "avoid": "Do not imitate any specific Ibiza DJ, radio host, or celebrity voice."
+    },
+    {
+      "id": "neon_signal_host",
+      "name": "The Neon Signal Host",
+      "description": "A futuristic cyber-radio host for electronic, synthetic, and experimental transformations.",
+      "voice_direction": "cool, futuristic, precise, mysterious, cinematic",
+      "intro_template": "Signal detected. We are translating {source_era} {source_genre} through the circuitry of {remix_era} {remix_genre}. The timeline is now in motion.",
+      "best_for": ["synth-pop", "hyperpop", "AI-era electronic", "future bass", "techno"],
+      "avoid": "Do not imitate any specific sci-fi narrator, DJ, actor, or performer."
+    }
+  ]
+}

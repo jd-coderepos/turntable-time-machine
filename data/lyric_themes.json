@@ -1,0 +1,12 @@
+{
+  "themes": [
+    {"id": "night_drive", "label": "Night drive", "keywords": ["headlights", "city", "memory", "motion"]},
+    {"id": "lost_summer", "label": "Lost summer", "keywords": ["warm air", "old light", "dancing", "goodbye"]},
+    {"id": "future_city", "label": "Future city", "keywords": ["neon", "signal", "glass", "tomorrow"]},
+    {"id": "dancefloor_memory", "label": "Dancefloor memory", "keywords": ["bass", "shadows", "hands", "mirrorball"]},
+    {"id": "radio_signal", "label": "Radio signal", "keywords": ["static", "voice", "frequency", "distance"]},
+    {"id": "sunset_goodbye", "label": "Sunset goodbye", "keywords": ["horizon", "gold", "wind", "last song"]},
+    {"id": "time_travel", "label": "Time travel", "keywords": ["clock", "echo", "timeline", "return"]}
+  ]
+}
+

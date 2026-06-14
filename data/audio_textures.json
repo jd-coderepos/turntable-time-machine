@@ -1,0 +1,60 @@
+{
+  "audio_textures": [
+    {
+      "id": "vinyl_crackle",
+      "label": "Vinyl crackle",
+      "description": "Adds light crackle and analog warmth for a record-player feeling.",
+      "prompt_terms": ["vinyl warmth", "subtle crackle", "analog record texture"],
+      "post_processing_hint": "Add low-volume crackle/noise and gentle high-frequency roll-off."
+    },
+    {
+      "id": "cassette_warmth",
+      "label": "Cassette warmth",
+      "description": "Softens the audio with tape-like hiss and gentle saturation.",
+      "prompt_terms": ["cassette warmth", "tape hiss", "soft analog saturation"],
+      "post_processing_hint": "Add low-volume hiss, slight pitch flutter if available, and gentle compression."
+    },
+    {
+      "id": "fm_radio",
+      "label": "FM radio",
+      "description": "Polished radio-like nostalgic broadcast sound.",
+      "prompt_terms": ["FM radio polish", "broadcast compression", "retro radio warmth"],
+      "post_processing_hint": "Apply mild compression and subtle EQ shaping."
+    },
+    {
+      "id": "mono_radio",
+      "label": "Mono radio",
+      "description": "Older radio-style narrow sound with limited frequency range.",
+      "prompt_terms": ["mono radio sound", "old broadcast texture", "narrow frequency range"],
+      "post_processing_hint": "Convert toward mono and apply band-pass filtering."
+    },
+    {
+      "id": "club_pa",
+      "label": "Club PA",
+      "description": "Makes the output feel like it is playing through a club sound system.",
+      "prompt_terms": ["club PA energy", "room reverb", "dancefloor sound"],
+      "post_processing_hint": "Add subtle room reverb and compression."
+    },
+    {
+      "id": "vhs_glow",
+      "label": "VHS glow",
+      "description": "A soft, hazy late-80s/90s home-video atmosphere.",
+      "prompt_terms": ["VHS nostalgia", "soft haze", "retro video-era warmth"],
+      "post_processing_hint": "Add soft saturation and mild high-end blur."
+    },
+    {
+      "id": "mp3_compression",
+      "label": "Early MP3 compression",
+      "description": "Evokes early digital files and internet-era audio sharing.",
+      "prompt_terms": ["early digital compression", "Y2K internet audio", "slightly compressed MP3 texture"],
+      "post_processing_hint": "Use subtle bit-rate style degradation only if it still sounds pleasant."
+    },
+    {
+      "id": "clean_digital",
+      "label": "Clean digital master",
+      "description": "Modern, clean, bright audio with minimal nostalgic artifacts.",
+      "prompt_terms": ["clean digital master", "modern polished sound", "wide stereo"],
+      "post_processing_hint": "Minimal post-processing; preserve clarity."
+    }
+  ]
+}
