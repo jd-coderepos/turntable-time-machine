@@ -6,6 +6,21 @@ from pathlib import Path
 
 import gradio as gr
 
+try:
+    import spaces
+except Exception:  # pragma: no cover - local/CPU fallback when ZeroGPU is absent
+    class _SpacesFallback:
+        def GPU(self, *args, **kwargs):
+            if args and callable(args[0]) and len(args) == 1 and not kwargs:
+                return args[0]
+
+            def decorator(fn):
+                return fn
+
+            return decorator
+
+    spaces = _SpacesFallback()
+
 from src.audio_effects import apply_texture
 from src.audio_utils import add_silence, concatenate_audio, load_audio, resample_if_needed, save_audio
 from src.data_loader import (
@@ -140,6 +155,7 @@ def surprise_me():
     )
 
 
+@spaces.GPU(duration=120)
 def generate_time_machine_mix(
     source_era_label,
     source_genre_label,
@@ -365,15 +381,15 @@ with gr.Blocks(title="Turntable Time Machine", css=CSS) as demo:
                     model_status = gr.Markdown()
                     safety_note = gr.Markdown(copyright_safety_note())
 
-    source_era.change(update_source_genres, source_era, source_genre).then(
-        timeline_route_html, [source_era, source_genre, remix_era, remix_genre], route_html
+    source_era.change(update_source_genres, source_era, source_genre, api_name=False).then(
+        timeline_route_html, [source_era, source_genre, remix_era, remix_genre], route_html, api_name=False
     )
-    source_genre.change(timeline_route_html, [source_era, source_genre, remix_era, remix_genre], route_html)
-    remix_era.change(update_remix_genres, remix_era, remix_genre).then(
-        timeline_route_html, [source_era, source_genre, remix_era, remix_genre], route_html
+    source_genre.change(timeline_route_html, [source_era, source_genre, remix_era, remix_genre], route_html, api_name=False)
+    remix_era.change(update_remix_genres, remix_era, remix_genre, api_name=False).then(
+        timeline_route_html, [source_era, source_genre, remix_era, remix_genre], route_html, api_name=False
     )
-    remix_genre.change(timeline_route_html, [source_era, source_genre, remix_era, remix_genre], route_html)
-    vocal_mode.change(update_lyric_theme_visibility, vocal_mode, lyric_theme)
+    remix_genre.change(timeline_route_html, [source_era, source_genre, remix_era, remix_genre], route_html, api_name=False)
+    vocal_mode.change(update_lyric_theme_visibility, vocal_mode, lyric_theme, api_name=False)
 
     surprise_button.click(
         surprise_me,
@@ -394,6 +410,7 @@ with gr.Blocks(title="Turntable Time Machine", css=CSS) as demo:
             random_seed,
             route_html,
         ],
+        api_name=False,
     )
 
     generate_button.click(
@@ -427,6 +444,7 @@ with gr.Blocks(title="Turntable Time Machine", css=CSS) as demo:
             route_html,
             journey_html,
         ],
+        api_name=False,
     )
 
 
