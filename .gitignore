@@ -1,8 +1,8 @@
 __pycache__/
 *.pyc
+*.zip
 .venv/
 outputs/*.wav
 outputs/*.mp3
 outputs/*.flac
 .env
-
