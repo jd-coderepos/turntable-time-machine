@@ -32,11 +32,11 @@ tags:
   - achievement:fieldnotes
 ---
 
-# 🤗 📻 Turntable Time Machine
+# 🤗 💿📻⏳ Turntable Time Machine
 
-## **Pick two eras. Summon a fictional DJ. Hear a tiny radio broadcast from a timeline that never happened.**
+## **Pick two eras 🕰️. Summon a fictional DJ 🎙️. Hear a tiny radio broadcast from a timeline that never happened 📻✨.**
 
-Turntable Time Machine is a whimsical Gradio app built for the Hugging Face x Gradio Build Small Hackathon. It lets users choose a source era, remix era, fictional DJ host, language, mood, texture, and vocal mode, then generates a short original AI radio postcard.
+Turntable Time Machine is a whimsical Gradio app built for the Hugging Face x Gradio Build Small Hackathon. It lets users choose a source era 🕰️, remix era 🔁, fictional DJ host 🎙️, language 🌍, mood 🌈, texture 📼, and vocal mode 🎵, then generates a short original AI radio postcard 📻.
 
 *The twist:* this is not a famous-song remix machine. The app uses broad musical-era vocabularies and safety constraints to make new little audio artifacts: 1960s soul through a 1990s house lens, 1980s synth-pop polished into 2000s filtered disco house, or a 2020s lo-fi signal drifting backward through old radio static.
 
@@ -178,4 +178,4 @@ The lyric generator asks for only two short original lines and sanitizes generat
 
 This project was built using [**OpenAI Codex**](https://openai.com/codex/) as a coding agent. Codex supported the Gradio app structure, timeline orchestration logic, fallback audio behavior, safety checks, tests, and submission-readiness polish.
 
-Thank you to the **Gradio team** and the [Build Small Hackathon](https://huggingface.co/build-small-hackathon) partners for making room for tiny, playful, local/open-weight AI experiments. 📻
+Thank you to the **Gradio team** and the [Build Small Hackathon](https://huggingface.co/build-small-hackathon) partners for making room for tiny, playful, local/open-weight AI experiments. 🎛️📻✨
