@@ -383,7 +383,7 @@ with gr.Blocks(title="Turntable Time Machine", css=CSS) as demo:
                         final_audio = gr.Audio(label="Final broadcast", elem_classes=["audio-card"])
                         music_audio = gr.Audio(label="Music only", elem_classes=["audio-card"])
                         intro_audio = gr.Audio(label="Spoken DJ intro", elem_classes=["audio-card"])
-                        intro_audio_status = gr.Markdown("Spoken DJ intro appears here when Kokoro TTS is available.")
+                        intro_audio_status = gr.Markdown("Spoken DJ intro appears here when MMS TTS is available.")
                         mixtape_card = gr.HTML("<div class='mixtape-card'><div class='mixtape-title'>Mixtape Card</div><h3>Waiting for a timeline bend.</h3></div>")
                 with gr.Accordion("Generated text and status", open=False):
                     dj_intro_text = gr.Textbox(label="Fictional DJ intro text", lines=3)

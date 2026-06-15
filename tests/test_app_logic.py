@@ -17,6 +17,7 @@ from src.tts import generate_dj_voice
 class TurntableTimeMachineLogicTests(unittest.TestCase):
     def tearDown(self):
         os.environ.pop("TTM_TEST_MODEL_CALLS", None)
+        os.environ.pop("TTM_DISABLE_TTS_MODEL", None)
         patterns = [
             "outputs/test_*.wav",
             "outputs/final_mix_*.wav",
@@ -148,9 +149,22 @@ class TurntableTimeMachineLogicTests(unittest.TestCase):
         self.assertFalse(lyrics["fallback_used"])
         self.assertIn("simulated for tests", music["status"])
         self.assertIn("simulated for tests", tts["status"])
+        self.assertEqual(tts["model_id"], "facebook/mms-tts-eng")
         self.assertIn("simulated for tests", lyrics["status"])
 
+    def test_tts_model_routes_by_language(self):
+        os.environ["TTM_TEST_MODEL_CALLS"] = "1"
+        tts = generate_dj_voice(
+            "Bonsoir, voyageurs du temps.",
+            "fr",
+            "warehouse_announcer",
+            "outputs/test_model_tts_fr.wav",
+        )
+        self.assertTrue(tts["tts_succeeded"])
+        self.assertEqual(tts["model_id"], "facebook/mms-tts-fra")
+
     def test_generate_pipeline_all_vocal_modes_create_final_audio(self):
+        os.environ["TTM_DISABLE_TTS_MODEL"] = "1"
         for index, vocal_mode in enumerate(app.VOCAL_MODES):
             with self.subTest(vocal_mode=vocal_mode):
                 result = app.generate_time_machine_mix(
@@ -231,7 +245,7 @@ class TurntableTimeMachineLogicTests(unittest.TestCase):
         self.assertTrue(Path(intro_path).exists())
         self.assertEqual(intro_status, "Spoken DJ intro generated.")
         self.assertIn("ACE-Step model call simulated", status)
-        self.assertIn("Kokoro spoken-DJ model call simulated", status)
+        self.assertIn("MMS TTS spoken-DJ model call simulated", status)
         self.assertIn("tiny-aya-global text model call simulated", status)
         self.assertIn("Lyrics:", prompt)
         self.assertGreaterEqual(len(lyrics_text.splitlines()), 2)

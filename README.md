@@ -11,7 +11,10 @@ pinned: false
 license: mit
 models:
   - ACE-Step/Ace-Step1.5
-  - hexgrad/Kokoro-82M
+  - facebook/mms-tts-eng
+  - facebook/mms-tts-deu
+  - facebook/mms-tts-fra
+  - facebook/mms-tts-spa
   - CohereLabs/tiny-aya-global
 tags:
   - build-small
@@ -37,7 +40,7 @@ Turntable Time Machine is a whimsical Gradio app built for the Hugging Face x Gr
 
 *The twist:* this is not a famous-song remix machine 🚫🎤. The app uses broad musical-era vocabularies and safety constraints to make new little audio artifacts: 1960s soul through a 1990s house lens 🪩, 1980s synth-pop polished into 2000s filtered disco house 💿, or a 2020s lo-fi signal drifting backward through old radio static 📡.
 
-This submission targets the **Thousand Token Wood** track 🪵: playful, compact, AI-native, and built around small/open model targets. ACE-Step, Kokoro, and Tiny Aya are used as optional model hooks, while deterministic templates and fallback audio keep the app demonstrable when model access or GPU runtime is limited.
+This submission targets the **Thousand Token Wood** track 🪵: playful, compact, AI-native, and built around small/open model targets. ACE-Step, MMS TTS, and Tiny Aya are used as optional model hooks, while deterministic templates and fallback audio keep the app demonstrable when model access or GPU runtime is limited.
 
 ## 🔗 Submission Links
 
@@ -60,7 +63,7 @@ A concise demo flow:
 8. 🌈 Keep **nostalgic and warm**, choose **Clean digital master**, and use the **10 second** duration.
 9. ⚡ Click **Bend the Timeline**.
 10. ▶️ Play the **Final broadcast**, then compare it with **Music only**.
-11. 🎙️ Show the **Fictional DJ intro** text card. If Kokoro TTS is unavailable, note that the app shows the intro as text instead of pretending a tone is spoken word.
+11. 🎙️ Show the **Fictional DJ intro** text card and the **Spoken DJ intro** audio when MMS TTS is available.
 12. ✍️ Show the **Generated micro-lyrics** card and the **Mixtape Card** with the route, model status, BPM, seed, texture, and safety note.
 
 🎬 Recommended one-video case: **1960s Folk pop -> 2000s indie rock** with **The Warehouse Announcer**, **French**, **Original micro-lyrics**, and **English + broadcast language**. It shows the app's full loop: era routing, fictional host text, multilingual prompt routing, generated micro-lyrics, safety-aware prompt, texture processing, and final audio.
@@ -93,7 +96,7 @@ User selections
 → BPM selection from genre ranges
 → optional Tiny Aya micro-lyrics
 → safety-aware music prompt
-→ optional Kokoro DJ narration
+→ optional MMS TTS DJ narration
 → ACE-Step music hook or fallback synth audio
 → nostalgia texture processing
 → final broadcast and mixtape card
@@ -106,11 +109,11 @@ User selections
 | Component | Model | Parameters | Used for |
 | --- | --- | ---: | --- |
 | Music generation target | [ACE-Step/Ace-Step1.5](https://huggingface.co/ACE-Step/Ace-Step1.5) | under 32B target stack | Original short music clips |
-| Spoken DJ intro target | [hexgrad/Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M) | 82M | Optional fictional DJ narration |
+| Spoken DJ intro target | [facebook/mms-tts-eng](https://huggingface.co/facebook/mms-tts-eng), `deu`, `fra`, `spa` variants | 36.3M each for English model card | Optional fictional DJ narration in the selected broadcast language |
 | Text / micro-lyrics target | [CohereLabs/tiny-aya-global](https://huggingface.co/CohereLabs/tiny-aya-global) | small multilingual model | Optional two-line original lyrics |
 | Template and synth fallback | none | 0 | Keeps the app usable in restricted runtimes |
 
-ACE-Step and Kokoro are lazy optional hooks. If model packages, weights, or hardware are unavailable, the app falls back to playable synthetic demo audio and text-only DJ intros. Tiny Aya falls back to deterministic micro-lyrics when access is restricted.
+ACE-Step and MMS TTS are lazy optional hooks. If model packages, weights, or hardware are unavailable, the app falls back to playable synthetic demo audio and text-only DJ intros. Tiny Aya falls back to deterministic micro-lyrics when access is restricted.
 
 ## 🗂️ Data
 

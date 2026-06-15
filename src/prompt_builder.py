@@ -143,7 +143,7 @@ def build_mixtape_card(
         ("Texture", texture.get("label")),
         ("Mood", mood),
         ("BPM / Seed", f"{bpm} / {seed}"),
-        ("Model stack", "ACE-Step 1.5 music, Kokoro-82M spoken DJ, Tiny Aya text; graceful local fallbacks"),
+        ("Model stack", "ACE-Step 1.5 music, MMS TTS spoken DJ, Tiny Aya text; graceful local fallbacks"),
         ("Status", " | ".join(statuses)),
         ("Safety", copyright_safety_note()),
     ]
