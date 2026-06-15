@@ -46,8 +46,8 @@ This submission targets the **Thousand Token Wood** track: playful, compact, AI-
 
 - 🤗 Live Space: https://huggingface.co/spaces/build-small-hackathon/turntable-time-machine
 - GitHub repo: https://github.com/jd-coderepos/turntable-time-machine
-- 🎬 Demo video: add demo video URL here
-- Field notes & Social Post: [title](link)
+- 🎬 Demo video: https://www.youtube.com/watch?v=EKCwTK88pUE
+- Field notes & Social Post: [Bending Time with a Virtual DJ -- Field Notes from the Build Small AI Hackathon](https://medium.com/@jenlindadsouza/bending-musical-time-with-a-fictional-dj-field-notes-from-the-build-small-hackathon-71f10680ca0e?postPublishedType=repub)
 
 ## 🎬 Demo Script
 
