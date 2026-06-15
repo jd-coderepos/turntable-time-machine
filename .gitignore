@@ -1,7 +1,15 @@
 __pycache__/
 *.pyc
 *.zip
+*.mp4
+*.mov
+*.m4v
+*.avi
+*.webm
+*.mp3
+*.wav
 .venv/
+promo_output/
 outputs/*.wav
 outputs/*.mp3
 outputs/*.flac
