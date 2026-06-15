@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import random
 import uuid
+import html
 from pathlib import Path
 
 import gradio as gr
@@ -263,10 +264,12 @@ def generate_time_machine_mix(
     )
     status_md = "\n".join([f"- {status}" for status in statuses])
     route = timeline_route_html(source_era_label, source_genre_label, remix_era_label, remix_genre_label)
+    intro_text = html.escape(intro["text"])
+    lyrics_html = html.escape(lyrics or "Instrumental / no lyric text requested.").replace(chr(10), "<br>")
     journey = f"""
     {route}
-    <div class="micro"><h3>Fictional DJ intro</h3><p>{intro['text']}</p></div>
-    <div class="micro lyric-box"><h3>Generated micro-lyrics</h3><p>{(lyrics or 'Instrumental / no lyric text requested.').replace(chr(10), '<br>')}</p></div>
+    <div class="micro"><h3>Fictional DJ intro</h3><p>{intro_text}</p></div>
+    <div class="micro lyric-box"><h3>Generated micro-lyrics</h3><p>{lyrics_html}</p></div>
     """
     return (
         final_path,
@@ -298,11 +301,12 @@ CSS = """
 .mascot-label{position:absolute;left:22px;right:22px;bottom:22px;z-index:2;display:flex;justify-content:space-between;gap:12px;align-items:end}.mascot-label b{font-size:20px}.mascot-label span{display:block;color:#bdeff5;font-size:13px;margin-top:4px}.seal{padding:9px 12px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);font-size:12px}
 .panel{background:rgba(255,255,255,.66)!important;border:1px solid rgba(255,255,255,.86)!important;border-radius:32px!important;padding:20px!important;box-shadow:0 24px 70px rgba(77,79,110,.13)!important}
 .panel h2{margin:0 0 12px!important;font-size:18px!important}.compact-control label span{color:#64708a!important;font-size:12px!important;text-transform:uppercase!important;letter-spacing:.08em!important;font-weight:900!important}
-.compact-control input,.compact-control select,.compact-control textarea{background:#fffdf4!important;border:1px solid var(--line)!important;border-radius:16px!important;color:var(--ink)!important;font-weight:700!important}
+.compact-control input:not([type="radio"]):not([type="checkbox"]),.compact-control select,.compact-control textarea{background:#fffdf4!important;border:1px solid var(--line)!important;border-radius:16px!important;color:var(--ink)!important;font-weight:700!important}
+.compact-control input[type="radio"],.compact-control input[type="checkbox"]{accent-color:var(--orange)!important;cursor:pointer!important}.compact-control label{cursor:pointer!important}
 #generate-button{background:linear-gradient(135deg,var(--orange),#ffb84f)!important;color:#24121a!important;border:0!important;border-radius:18px!important;font-weight:1000!important;box-shadow:0 16px 32px rgba(242,106,56,.22)!important}
 #surprise-button{background:linear-gradient(135deg,#c3f7ff,#a693ff)!important;color:#15213a!important;border:0!important;border-radius:18px!important;font-weight:1000!important}
 .scroll{border-radius:34px;background:linear-gradient(180deg,#fffdf4,#fbebc5);border:1px solid rgba(255,255,255,.9);padding:24px;position:relative;overflow:hidden;min-height:470px}.path{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;margin:12px 0 20px}.era-card{background:white;border:1px solid var(--line);border-radius:24px;padding:18px;box-shadow:0 14px 30px rgba(99,75,38,.08)}.era-card small{color:var(--teal);font-weight:900;text-transform:uppercase;letter-spacing:.1em}.era-card h3{font-size:26px;margin:9px 0 4px}.era-card p{margin:0;color:#657087;line-height:1.35}.swirl{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;border:5px solid var(--teal);border-left-color:transparent;color:var(--orange);font-size:24px;font-weight:900}.wind-wave{height:112px;border-radius:28px;background:linear-gradient(135deg,rgba(29,184,197,.12),rgba(110,84,255,.14));border:1px dashed rgba(38,50,74,.18);position:relative;overflow:hidden}.wind-wave:before{content:"";position:absolute;inset:20px;background:repeating-radial-gradient(ellipse at center,transparent 0 12px,rgba(29,184,197,.65) 13px 16px,transparent 17px 28px);transform:skewX(-20deg)}
-.micro{margin-top:18px;border-radius:24px;background:#172135;color:#fff;padding:18px}.micro h3{margin:0 0 8px;color:#f9d989}.micro p{font-size:18px;line-height:1.35;margin:0}.lyric-box{background:#26324a}
+.micro{margin-top:18px;border-radius:24px;background:#172135;color:#fff;padding:18px}.micro h3{margin:0 0 8px;color:#f9d989!important}.micro p{font-size:18px;line-height:1.35;margin:0;color:#f7fbff!important}.lyric-box{background:#26324a}
 .audio-card{background:#172135!important;color:white!important;border-radius:24px!important;padding:14px!important}.mixtape-card{background:white;border:1px solid var(--line);border-radius:24px;padding:18px}.mixtape-title{font-size:12px;color:var(--orange);font-weight:1000;text-transform:uppercase;letter-spacing:.12em}.mixtape-card h3{margin:8px 0 12px}.ttm-kv{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding:8px 0;font-size:14px}.ttm-kv span{color:#7d8697}.ttm-kv b{text-align:right}.lyrics-chip{background:#fff4d2;border-radius:16px;padding:12px;margin:10px 0;font-weight:800}
 @media(max-width:900px){.path{grid-template-columns:1fr}.swirl{margin:auto}.ttm-kv{display:block}.ttm-kv b{text-align:left;display:block;margin-top:4px}}
 """

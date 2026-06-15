@@ -10,6 +10,7 @@ import soundfile as sf
 import app
 from src.lyrics_generator import generate_micro_lyrics
 from src.music_generator import generate_music
+from src.safety import sanitize_generated_lyrics
 from src.tts import generate_dj_voice
 
 
@@ -48,6 +49,19 @@ class TurntableTimeMachineLogicTests(unittest.TestCase):
         self.assertTrue(app.update_lyric_theme_visibility("Original micro-lyrics")["visible"])
         self.assertFalse(app.update_lyric_theme_visibility("Instrumental only")["visible"])
         self.assertFalse(app.update_lyric_theme_visibility("Wordless vocal texture")["visible"])
+
+    def test_micro_lyrics_sanitizer_removes_instruction_text(self):
+        clean, warnings = sanitize_generated_lyrics(
+            "No explanation, no punctuation\n"
+            "Vapor dreams drift on neon haze\n"
+            "We chase tomorrow through glass streets"
+        )
+        self.assertEqual(clean, "Vapor dreams drift on neon haze\nWe chase tomorrow through glass streets")
+        self.assertTrue(any("instruction" in warning for warning in warnings))
+
+    def test_compact_control_css_does_not_restyle_radio_inputs(self):
+        self.assertIn('input:not([type="radio"]):not([type="checkbox"])', app.CSS)
+        self.assertIn('input[type="radio"]', app.CSS)
 
     def test_surprise_me_returns_complete_valid_state(self):
         result = app.surprise_me()

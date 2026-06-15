@@ -25,6 +25,15 @@ BLOCKED_PATTERNS = [
 
 FORBIDDEN_UI_TERMS = ["Aang", "Avatar", "Airbender", "Air Nomad", "four nations", "bending"]
 
+LYRIC_META_PATTERNS = [
+    r"\b(no|without)\s+(explanation|punctuation|commentary|markdown)\b",
+    r"\breturn\s+only\b",
+    r"\b(two|2)\s+lyric\s+lines?\b",
+    r"\bmaximum\s+\d+\s+words?\b",
+    r"\brules?\b",
+    r"\blyrics?:?\b",
+]
+
 
 def copyright_safety_note() -> str:
     return SAFETY_NOTE
@@ -66,6 +75,9 @@ def sanitize_generated_lyrics(lyrics: str) -> tuple[str, list[str]]:
         line = re.sub(r"[^A-Za-zÀ-ÿ0-9 ,.'!?-]", "", line).strip()
         if not line:
             continue
+        if any(re.search(pattern, line, flags=re.IGNORECASE) for pattern in LYRIC_META_PATTERNS):
+            warnings.append("Removed non-lyric instruction text from generated lyrics.")
+            continue
         words = line.split()
         if len(words) > 12:
             warnings.append("Trimmed a lyric line to 12 words.")
@@ -76,4 +88,3 @@ def sanitize_generated_lyrics(lyrics: str) -> tuple[str, list[str]]:
     if not clean_lines:
         warnings.append("Generated lyrics were empty after sanitization.")
     return "\n".join(clean_lines), warnings
-
