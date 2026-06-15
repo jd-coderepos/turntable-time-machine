@@ -5,11 +5,17 @@ colorFrom: yellow
 colorTo: purple
 sdk: gradio
 sdk_version: 5.49.1
+python_version: 3.10.13
 app_file: app.py
 pinned: false
 license: mit
+models:
+  - ACE-Step/Ace-Step1.5
+  - hexgrad/Kokoro-82M
+  - CohereLabs/tiny-aya-global
 tags:
   - build-small
+  - track:wood
   - thousand-token-wood
   - best-use-of-codex
   - off-brand
@@ -24,55 +30,113 @@ tags:
 
 # Turntable Time Machine
 
-Original AI radio remixes from impossible musical timelines.
+## Original AI radio postcards from impossible musical timelines.
 
-Turntable Time Machine is a Gradio Space for the Build Small Hackathon Thousand Token Wood track. It is an audio-first radio console: choose a source era, remix era, fictional DJ host, broadcast language, nostalgia texture, and vocal mode, then generate a short original time-travel broadcast.
+Turntable Time Machine is a whimsical Gradio app built for the Hugging Face x Gradio Build Small Hackathon. It gives users a tiny retro radio console where they can choose a source era, remix era, fictional DJ host, broadcast language, nostalgia texture, mood, and vocal mode, then generate a short original "broadcast" from that alternate timeline.
 
-## What it does
+The idea is simple: what if a late-night AI DJ could take the vocabulary of one decade and route it through the production logic of another? Not a cover, not a famous-song remix, not an artist imitation, but a little audio artifact from a timeline that never quite existed.
 
-- Builds safe music prompts from curated taxonomy JSON files.
-- Generates a fictional DJ intro text in English, German, French, or Spanish.
-- Uses optional original two-line micro-lyrics from `CohereLabs/tiny-aya-global`.
-- Routes music generation through an ACE-Step wrapper.
-- Routes spoken DJ narration through a Kokoro wrapper.
-- Falls back gracefully to synthetic demo audio and text-only DJ intros when models are unavailable.
-- Applies subtle nostalgia textures such as vinyl crackle, cassette warmth, FM radio, VHS glow, and club PA.
+This submission targets the **Thousand Token Wood** track: playful, compact, selection-driven, and oriented around small/open model components. The app currently includes optional hooks for ACE-Step music generation, Kokoro spoken narration, and Tiny Aya text generation, while keeping the experience usable through deterministic templates and local fallback audio when model loading is unavailable.
 
-## Why it fits Thousand Token Wood
+## Submission Links
 
-The app is whimsical, selection-driven, small-model-oriented, and deliberately off-brand: it turns structured taxonomy choices into tiny AI radio postcards instead of open-ended prompt boxes.
+- Live Space: add Hugging Face Space URL here
+- GitHub repo: add repository URL here
+- Demo video: add demo video URL here
+- Social post: add social post URL here
+- Agent traces: add trace dataset or notes URL here, if applicable
 
-## Model stack
+## Demo Script
 
-- Music generation: `ACE-Step/Ace-Step1.5`
-- Spoken fictional DJ intro: `hexgrad/Kokoro-82M`
-- Multilingual text and micro-lyrics: `CohereLabs/tiny-aya-global`
+Recommended single demo case:
 
-All intended models are under 32B parameters. No paid external API is required. The repository includes fallback paths so the app still launches and generates playable audio in limited runtimes.
+**1980s Synth-pop -> 2000s Filtered disco house** with **The Neon Signal Host**, **English**, **Original micro-lyrics**, **Future city**, **VHS glow**, and a **dreamy and cinematic** mood.
 
-## Build Small compliance
+This is the strongest one-video route because it shows the app's full personality in one pass: a clear before/after era transformation, a fictional DJ identity, optional generated lyrics, a visible prompt card, audio texture processing, and the final broadcast output.
 
-- Gradio app with `app.py`
-- Uses small/open model targets under 32B parameters
-- Includes fallback behavior for unavailable model downloads or restricted checkpoints
-- Avoids famous-song remixing, artist imitation, real-DJ imitation, voice cloning, copyrighted lyrics, and copyrighted melody reproduction
-- Includes custom Wind Nomad Radio-style UI rather than default Gradio styling
+Concise demo flow:
 
-This project does not claim Tiny Titan by default because the full intended stack includes models that should be checked in the final Space runtime before adding the `tiny-titan` tag.
+1. Open the Turntable Time Machine Space.
+2. Show the custom radio-console interface and the timeline route panel.
+3. Set the source to **1980s / Synth-pop**.
+4. Set the remix destination to **2000s / Filtered disco house**.
+5. Choose **The Neon Signal Host** as the fictional DJ.
+6. Choose **English** so the spoken intro path has the best chance to work when Kokoro is available.
+7. Set vocal mode to **Original micro-lyrics** and lyric theme to **Future city**.
+8. Pick **VHS glow** or **Clean digital master** depending on whether you want a more nostalgic or cleaner audio result.
+9. Click **Bend the Timeline**.
+10. Play the final broadcast, then briefly show the DJ intro text, generated micro-lyrics, generated ACE-Step prompt, model status, and mixtape card.
 
-## Multilingual support
+Optional quick second shot if the first generation finishes fast: click **Surprise Me** to show that the app can build a complete route automatically.
 
-The app includes English, German, French, and Spanish in `data/languages.json`. Handcrafted deterministic templates are used for DJ intro text and prompt localization. Tiny Aya is used only for short optional text generation.
+## Main Features
 
-## Original Micro-Lyrics mode
+* Custom illustrated Gradio interface styled as a fictional timeline radio console
+* Era-to-era music routing across the 1960s, 1970s, 1980s, 1990s, 2000s, 2010s, and 2020s
+* Curated genre vocabulary for soul, disco, funk, synth-pop, house, trip-hop, UK garage, hyperpop, lo-fi, amapiano-inspired grooves, AI-era electronic, and more
+* Fictional DJ personas with distinct intro templates and voice direction
+* English, German, French, and Spanish broadcast-language support for text prompts and DJ intro text
+* Three vocal modes: instrumental only, wordless vocal texture, and original two-line micro-lyrics
+* Audio nostalgia textures such as vinyl crackle, cassette warmth, FM radio, mono radio, club PA, VHS glow, early MP3 compression, and clean digital master
+* Surprise Me route generation for complete randomized sessions
+* Mixtape card output with route, language, prompt mode, vocal mode, texture, BPM, seed, model status, and safety note
+* Graceful local fallbacks so the app can still produce playable audio and useful text when model downloads, GPU access, or optional packages are unavailable
 
-Micro-lyrics are maximum two short lines, generated from structured dropdown selections. If Tiny Aya cannot load, deterministic fallback lyrics from the app are used. Tiny Aya generates text only; ACE-Step is the intended model for any sung/vocal rendering.
+## Timeline Engine
 
-## Safety and originality policy
+Turntable Time Machine is more than a blank prompt box. The app constrains generation through curated data and a small programmed routing layer:
 
-Turntable Time Machine generates original audio from broad musical-era descriptors. It does not create covers, reproduce famous songs, clone real voices, imitate real DJs, or generate copyrighted lyrics or melodies.
+```text
+User selections
+-> source era and genre lookup
+-> remix era and genre lookup
+-> fictional DJ persona lookup
+-> language and prompt-mode routing
+-> mood sanitization
+-> BPM choice from genre ranges
+-> optional Tiny Aya micro-lyrics
+-> safe ACE-Step music prompt construction
+-> optional Kokoro spoken-DJ intro
+-> fallback music generation if needed
+-> nostalgia texture processing
+-> final broadcast mix
+-> mixtape card and safety note
+```
 
-## How to run locally
+The important design choice is that the app uses broad musical descriptors instead of asking users to name songs, artists, singers, producers, DJs, or copyrighted material. The result is meant to feel culturally legible without being a copy machine.
+
+## Models Used
+
+| Component | Model | Parameters | Used for |
+| --- | --- | ---: | --- |
+| Music generation target | [ACE-Step/Ace-Step1.5](https://huggingface.co/ACE-Step/Ace-Step1.5) | under 32B target stack | Original short music clips from safe era-remix prompts |
+| Spoken DJ intro target | [hexgrad/Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M) | 82M | Optional fictional DJ narration, without voice cloning |
+| Text / micro-lyrics target | [CohereLabs/tiny-aya-global](https://huggingface.co/CohereLabs/tiny-aya-global) | small multilingual model | Optional two-line original micro-lyrics |
+| Template and synth fallback | none | 0 | Keeps the app usable in restricted or model-limited runtimes |
+
+The repository is intentionally defensive about runtime availability. ACE-Step and Kokoro are represented as lazy optional hooks; if their packages, weights, or hardware path are unavailable, the app falls back to generated demo audio and text-only DJ intro behavior. Tiny Aya also falls back to deterministic two-line lyrics if access is restricted.
+
+## Data
+
+The app's personality lives in the JSON files under `data/`.
+
+`data/music_eras.json` defines the eras, genres, safe prompt styles, BPM ranges, instruments, sonic traits, and "avoid" notes that keep transformations broad and original.
+
+`data/dj_personas.json` defines six fictional hosts: The Midnight Radio Curator, The Velvet Disco Host, The Warehouse Announcer, The Block Party Selector, The Sunset Terrace DJ, and The Neon Signal Host.
+
+`data/audio_textures.json` defines post-processing flavors that make the generated clip feel like a record, cassette, radio broadcast, club system, VHS-era recording, early MP3, or clean master.
+
+`data/languages.json` defines the supported broadcast languages: English, German, French, and Spanish.
+
+`data/lyric_themes.json` defines compact lyric themes such as Night drive, Lost summer, Future city, Dancefloor memory, Radio signal, Sunset goodbye, and Time travel.
+
+## Build Small Fit
+
+Turntable Time Machine fits Thousand Token Wood because it is small, playful, local/open-weight-oriented, and intentionally off-brand. Instead of building a general music-prompting interface, it creates a constrained toy-like instrument: users make structured choices, the app turns those choices into safe generation instructions, and the output is a tiny timeline broadcast.
+
+It is also designed to remain demonstrable on limited hackathon infrastructure. If the intended model stack cannot run in the current environment, the app still launches, still produces audio, still shows its routing logic, and still makes the safety boundaries visible.
+
+## Local Setup
 
 ```bash
 python -m venv .venv
@@ -81,70 +145,63 @@ pip install -r requirements.txt
 python app.py
 ```
 
-## How to test
+On macOS or Linux:
 
-Run the logic and model-routing tests locally:
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python app.py
+```
+
+## Testing
+
+Run the logic and model-routing tests:
 
 ```bash
 python -m unittest discover -s tests
 ```
 
-The tests verify dropdown logic, Surprise Me, all vocal modes, fallback audio, final mix creation, and mocked ACE-Step/Kokoro/Tiny Aya call paths. Set `TTM_TEST_MODEL_CALLS=1` only for tests; the app's normal default is to attempt the intended models and fall back gracefully when unavailable.
+The tests cover taxonomy loading, era-dependent genre dropdowns, lyric-theme visibility, Surprise Me state generation, fallback audio, final mix creation, and simulated ACE-Step/Kokoro/Tiny Aya call paths.
 
-If you use a restricted Hugging Face model such as `CohereLabs/tiny-aya-global`, set a token locally without committing it:
-
-```bash
-set HF_TOKEN=hf_your_token_here
-set HUGGING_FACE_HUB_TOKEN=hf_your_token_here
-```
-
-On Hugging Face Spaces, add the token under **Settings -> Repository secrets** as `HF_TOKEN` or `HUGGING_FACE_HUB_TOKEN`.
-
-Optional override:
+For test-only mocked model paths:
 
 ```bash
-set TEXT_MODEL_ID=CohereLabs/tiny-aya-global
+set TTM_TEST_MODEL_CALLS=1
+python -m unittest discover -s tests
 ```
 
-## How to use
+`TTM_TEST_MODEL_CALLS=1` is only for tests. Normal app execution attempts the intended model hooks first and falls back gracefully when they are unavailable.
 
-1. Choose source era and genre.
-2. Choose remix era and genre.
-3. Pick fictional DJ persona, language, mood, texture, and vocal mode.
-4. Click **Surprise Me** for a complete randomized route.
-5. Click **Bend the Timeline**.
-6. Play the final broadcast and inspect the mixtape card.
+## Hugging Face Space Notes
 
-## Demo examples
+Recommended Space settings:
 
-- 1960s Motown-inspired soul -> 1990s deep house, German DJ intro
-- 1970s funk -> 2020s amapiano-inspired groove, English DJ intro
-- 1980s synth-pop -> 2000s filtered disco house, French DJ intro
-- 1990s trip-hop -> 2020s lo-fi chill, Spanish micro-lyrics
-- 2000s UK garage -> 1970s disco, bilingual prompt
+```text
+SDK: Gradio
+Python: 3.10.13
+App file: app.py
+Hardware: ZeroGPU or a compatible GPU runtime for model-backed audio generation
+```
 
-## Demo video link
+Useful environment variables:
 
-Placeholder: add demo video URL here.
+```text
+TEXT_MODEL_ID=CohereLabs/tiny-aya-global
+HF_TOKEN=hf_your_token_here
+HUGGING_FACE_HUB_TOKEN=hf_your_token_here
+```
 
-## Social post link
+If a restricted model is used, add the token under **Settings -> Repository secrets** as `HF_TOKEN` or `HUGGING_FACE_HUB_TOKEN`. Do not commit tokens to the repository.
 
-Placeholder: add social post URL here.
+## Safety and Originality
 
-## Codex attribution note
+Turntable Time Machine is designed for original audio generation from broad era and genre descriptors. It does not create covers, reproduce famous songs, clone real voices, imitate real DJs, imitate specific artists, or generate copyrighted lyrics or melodies.
 
-This project was developed with Codex assistance. Codex-attributed commits are included in the connected GitHub repository / Space history for Build Small judging.
+The prompt builder appends originality constraints to every music prompt. The lyric generator asks for only two short original lines and sanitizes generated text before use. The fictional DJ personas are invented hosts, not attempts to mimic real broadcasters or performers.
 
-## Demo video script
+## Acknowledgements
 
-1. Show the custom retro Wind Nomad Radio-inspired UI.
-2. Click **Surprise Me**.
-3. Generate a short instrumental mix.
-4. Show the mixtape card and safety note.
-5. Generate a second example with **Original micro-lyrics**.
-6. Show the multilingual DJ intro text.
-7. Play the final audio.
+This project was built with [OpenAI Codex](https://openai.com/codex/) assistance for the Build Small Hackathon. Codex supported the Gradio app structure, data-driven routing logic, fallback audio behavior, safety checks, tests, and README polishing.
 
-## Social post draft
-
-I built Turntable Time Machine for #BuildSmall: a tiny AI radio console that creates original cross-era music postcards. Pick a source decade, remix it through another era, choose a fictional DJ host and broadcast language, and generate a short original audio segment with optional micro-lyrics. Built with Gradio + small models under 32B.
+Thanks to the Hugging Face, Gradio, and Build Small teams for creating a hackathon format that makes small-model experiments feel like musical toys, weird radios, and tiny instruments worth shipping.
