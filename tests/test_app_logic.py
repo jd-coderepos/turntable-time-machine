@@ -76,6 +76,12 @@ class TurntableTimeMachineLogicTests(unittest.TestCase):
         self.assertIn(result[11], app.DURATIONS)
         self.assertIn("era-card", result[14])
 
+    def test_prompt_mode_labels_are_plain_language(self):
+        self.assertEqual(
+            app.PROMPT_MODES,
+            ["Best stability (English)", "Broadcast language", "English + broadcast language"],
+        )
+
     def test_music_wrapper_attempts_model_by_default_then_falls_back(self):
         result = generate_music(
             "Create an original music clip. No vocals. No lyrics.",
@@ -90,6 +96,25 @@ class TurntableTimeMachineLogicTests(unittest.TestCase):
         audio, sr = sf.read(result["path"])
         self.assertEqual(sr, 44100)
         self.assertGreater(audio.shape[0], 0)
+
+    def test_fallback_music_varies_by_prompt_route(self):
+        first = generate_music(
+            "Create an original music clip. Start from 1960s Motown-inspired soul. Transform it into 2000s filtered disco house.",
+            duration=1,
+            bpm=118,
+            seed=123,
+            output_path="outputs/test_route_one.wav",
+        )
+        second = generate_music(
+            "Create an original music clip. Start from 2020s lo-fi chill. Transform it into 1970s funk.",
+            duration=1,
+            bpm=118,
+            seed=123,
+            output_path="outputs/test_route_two.wav",
+        )
+        audio_one, _ = sf.read(first["path"])
+        audio_two, _ = sf.read(second["path"])
+        self.assertGreater(float(abs(audio_one - audio_two).mean()), 0.001)
 
     def test_audio_model_calls_can_be_exercised_with_test_switch(self):
         os.environ["TTM_TEST_MODEL_CALLS"] = "1"
@@ -137,7 +162,7 @@ class TurntableTimeMachineLogicTests(unittest.TestCase):
                     "Clean digital master",
                     "nostalgic and warm",
                     "English",
-                    "English prompt for best stability",
+                    "Best stability (English)",
                     vocal_mode,
                     "Night drive",
                     1,
@@ -147,8 +172,9 @@ class TurntableTimeMachineLogicTests(unittest.TestCase):
                 final_path, music_path, intro_path, _intro_text, lyrics_text, prompt, _card, status = result[:8]
                 self.assertTrue(Path(final_path).exists())
                 self.assertTrue(Path(music_path).exists())
-                self.assertIsNone(intro_path)
+                self.assertTrue(Path(intro_path).exists())
                 self.assertIn("ACE-Step", status)
+                self.assertIn("Fallback DJ radio-signal intro audio generated", status)
                 audio, sr = sf.read(final_path)
                 self.assertEqual(sr, 44100)
                 self.assertGreater(audio.shape[0], 0)
@@ -171,7 +197,7 @@ class TurntableTimeMachineLogicTests(unittest.TestCase):
             "Clean digital master",
             "nostalgic and warm",
             "English",
-            "English prompt for best stability",
+            "Best stability (English)",
             "Original micro-lyrics",
             "Night drive",
             1,

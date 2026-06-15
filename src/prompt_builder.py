@@ -76,15 +76,15 @@ def build_music_prompt(
     duration,
     bpm,
     language_id="en",
-    prompt_language_mode="English prompt for best stability",
+    prompt_language_mode="Best stability (English)",
     vocal_mode="Instrumental only",
     lyrics=None,
 ) -> str:
     english = _english_prompt(source_era, source_genre, remix_era, remix_genre, texture, mood, duration, bpm)
     localized, _ = _localized_prompt(language_id, source_era, source_genre, remix_era, remix_genre, texture, mood, duration, bpm)
-    if prompt_language_mode == "Selected language prompt":
+    if prompt_language_mode in ("Broadcast language", "Selected language prompt"):
         prompt = localized
-    elif prompt_language_mode == "Bilingual prompt" and language_id != "en":
+    elif prompt_language_mode in ("English + broadcast language", "Bilingual prompt") and language_id != "en":
         prompt = f"{english}\n{localized}"
     else:
         prompt = english
@@ -159,4 +159,3 @@ def build_mixtape_card(
       {kv}
     </div>
     """
-

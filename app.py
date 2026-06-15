@@ -75,7 +75,7 @@ MOODS = [
     "futuristic and strange",
     "relaxed and intimate",
 ]
-PROMPT_MODES = ["English prompt for best stability", "Selected language prompt", "Bilingual prompt"]
+PROMPT_MODES = ["Best stability (English)", "Broadcast language", "English + broadcast language"]
 VOCAL_MODES = ["Instrumental only", "Wordless vocal texture", "Original micro-lyrics"]
 DURATIONS = [10, 15, 20]
 
@@ -355,7 +355,7 @@ with gr.Blocks(title="Turntable Time Machine", css=CSS) as demo:
                     broadcast_language = gr.Dropdown(list(LANGUAGE_LABEL_TO_ID.keys()), value="English", label="Broadcast language", elem_classes=["compact-control"])
                     vocal_mode = gr.Dropdown(VOCAL_MODES, value="Instrumental only", label="Vocal mode", elem_classes=["compact-control"])
                 lyric_theme = gr.Dropdown(list(THEME_LABEL_TO_ID.keys()), value=list(THEME_LABEL_TO_ID.keys())[0], label="Lyric theme", visible=False, elem_classes=["compact-control"])
-                prompt_language_mode = gr.Dropdown(PROMPT_MODES, value=PROMPT_MODES[0], label="Prompt language mode", elem_classes=["compact-control"])
+                prompt_language_mode = gr.Dropdown(PROMPT_MODES, value=PROMPT_MODES[0], label="Music prompt language", elem_classes=["compact-control"])
                 mood = gr.Dropdown(MOODS, value=MOODS[0], label="Mood", elem_classes=["compact-control"])
                 audio_texture = gr.Dropdown(list(TEXTURE_LABEL_TO_ID.keys()), value=list(TEXTURE_LABEL_TO_ID.keys())[-1], label="Audio texture", elem_classes=["compact-control"])
                 with gr.Row():
