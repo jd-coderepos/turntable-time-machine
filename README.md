@@ -1,6 +1,6 @@
 ---
 title: Turntable Time Machine
-emoji: 🎛️
+emoji: 📻
 colorFrom: yellow
 colorTo: purple
 sdk: gradio
@@ -15,10 +15,6 @@ models:
   - CohereLabs/tiny-aya-global
 tags:
   - build-small
-  - track:wood
-  - sponsor:openai
-  - achievement:offbrand
-  - achievement:sharing
   - thousand-token-wood
   - gradio
   - small-models
@@ -26,6 +22,11 @@ tags:
   - audio
   - music-generation
   - text-to-audio
+  - track:wood
+  - sponsor:openai
+  - achievement:offgrid
+  - achievement:offbrand
+  - achievement:fieldnotes
 ---
 
 # 🤗 💿📻⏳ Turntable Time Machine
