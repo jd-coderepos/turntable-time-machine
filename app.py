@@ -263,6 +263,11 @@ def generate_time_machine_mix(
         actual_seed,
     )
     status_md = "\n".join([f"- {status}" for status in statuses])
+    intro_audio_status = (
+        "Spoken DJ intro generated."
+        if tts_result.get("tts_succeeded")
+        else "Spoken DJ intro is unavailable in this runtime; use the fictional DJ intro text shown in the timeline card."
+    )
     route = timeline_route_html(source_era_label, source_genre_label, remix_era_label, remix_genre_label)
     intro_text = html.escape(intro["text"])
     lyrics_html = html.escape(lyrics or "Instrumental / no lyric text requested.").replace(chr(10), "<br>")
@@ -275,6 +280,7 @@ def generate_time_machine_mix(
         final_path,
         music_processed_path,
         intro_audio_path,
+        intro_audio_status,
         intro["text"],
         lyrics or "Instrumental / no lyric text requested.",
         music_prompt,
@@ -376,7 +382,8 @@ with gr.Blocks(title="Turntable Time Machine", css=CSS) as demo:
                     with gr.Column(scale=5, elem_classes=["panel"]):
                         final_audio = gr.Audio(label="Final broadcast", elem_classes=["audio-card"])
                         music_audio = gr.Audio(label="Music only", elem_classes=["audio-card"])
-                        intro_audio = gr.Audio(label="DJ intro", elem_classes=["audio-card"])
+                        intro_audio = gr.Audio(label="Spoken DJ intro", elem_classes=["audio-card"])
+                        intro_audio_status = gr.Markdown("Spoken DJ intro appears here when Kokoro TTS is available.")
                         mixtape_card = gr.HTML("<div class='mixtape-card'><div class='mixtape-title'>Mixtape Card</div><h3>Waiting for a timeline bend.</h3></div>")
                 with gr.Accordion("Generated text and status", open=False):
                     dj_intro_text = gr.Textbox(label="Fictional DJ intro text", lines=3)
@@ -439,6 +446,7 @@ with gr.Blocks(title="Turntable Time Machine", css=CSS) as demo:
             final_audio,
             music_audio,
             intro_audio,
+            intro_audio_status,
             dj_intro_text,
             micro_lyrics_text,
             generated_prompt_text,

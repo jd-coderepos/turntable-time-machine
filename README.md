@@ -51,16 +51,19 @@ This submission targets the **Thousand Token Wood** track 🪵: playful, compact
 A concise demo flow:
 
 1. 🤗 Open the [Turntable Time Machine Space](https://huggingface.co/spaces/build-small-hackathon/turntable-time-machine).
-2. 🕰️ Set **Source** to **1980s / Synth-pop**.
-3. 🔁 Set **Remix** to **2000s / Filtered disco house**.
-4. 🎙️ Choose **The Neon Signal Host**.
-5. 🌆 Choose **English**, **Original micro-lyrics**, and **Future city**.
-6. 📼 Pick **VHS glow** for a nostalgic broadcast texture.
-7. ⚡ Click **Bend the Timeline**.
-8. ▶️ Play the final broadcast.
-9. 🧾 Show the DJ intro, micro-lyrics, generated prompt, model status, and mixtape card.
+2. 🕰️ Set **Source era** to **1960s** and **Source genre** to **Folk pop**.
+3. 🔁 Set **Remix era** to **2000s** and **Remix genre** to **2000s indie rock**.
+4. 🎙️ Choose **The Warehouse Announcer** as the fictional DJ persona.
+5. 🌍 Choose **French** as the broadcast language.
+6. 🎵 Choose **Original micro-lyrics** and keep **Night drive** as the lyric theme.
+7. 🧠 Set **Music prompt language** to **English + broadcast language** to show the app's bilingual prompt path.
+8. 🌈 Keep **nostalgic and warm**, choose **Clean digital master**, and use the **10 second** duration.
+9. ⚡ Click **Bend the Timeline**.
+10. ▶️ Play the **Final broadcast**, then compare it with **Music only**.
+11. 🎙️ Show the **Fictional DJ intro** text card. If Kokoro TTS is unavailable, note that the app shows the intro as text instead of pretending a tone is spoken word.
+12. ✍️ Show the **Generated micro-lyrics** card and the **Mixtape Card** with the route, model status, BPM, seed, texture, and safety note.
 
-🎬 Recommended one-video case: **1980s Synth-pop -> 2000s Filtered disco house** with **The Neon Signal Host**. It shows the app's full loop: era routing, fictional host, generated micro-lyrics, safety-aware prompt, texture processing, and final audio.
+🎬 Recommended one-video case: **1960s Folk pop -> 2000s indie rock** with **The Warehouse Announcer**, **French**, **Original micro-lyrics**, and **English + broadcast language**. It shows the app's full loop: era routing, fictional host text, multilingual prompt routing, generated micro-lyrics, safety-aware prompt, texture processing, and final audio.
 
 ⚠️ Note: The app does **not** generate covers, real-DJ imitation, voice clones, copyrighted lyrics, or famous melodies. Outputs are original compositions guided by broad genre descriptors.
 

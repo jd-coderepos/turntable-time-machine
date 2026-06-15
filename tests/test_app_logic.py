@@ -169,12 +169,23 @@ class TurntableTimeMachineLogicTests(unittest.TestCase):
                     400 + index,
                     False,
                 )
-                final_path, music_path, intro_path, _intro_text, lyrics_text, prompt, _card, status = result[:8]
+                (
+                    final_path,
+                    music_path,
+                    intro_path,
+                    intro_status,
+                    _intro_text,
+                    lyrics_text,
+                    prompt,
+                    _card,
+                    status,
+                ) = result[:9]
                 self.assertTrue(Path(final_path).exists())
                 self.assertTrue(Path(music_path).exists())
-                self.assertTrue(Path(intro_path).exists())
+                self.assertIsNone(intro_path)
+                self.assertIn("Spoken DJ intro is unavailable", intro_status)
                 self.assertIn("ACE-Step", status)
-                self.assertIn("Fallback DJ radio-signal intro audio generated", status)
+                self.assertIn("Spoken DJ intro unavailable", status)
                 audio, sr = sf.read(final_path)
                 self.assertEqual(sr, 44100)
                 self.assertGreater(audio.shape[0], 0)
@@ -204,10 +215,21 @@ class TurntableTimeMachineLogicTests(unittest.TestCase):
             777,
             False,
         )
-        final_path, music_path, intro_path, _intro_text, lyrics_text, prompt, _card, status = result[:8]
+        (
+            final_path,
+            music_path,
+            intro_path,
+            intro_status,
+            _intro_text,
+            lyrics_text,
+            prompt,
+            _card,
+            status,
+        ) = result[:9]
         self.assertTrue(Path(final_path).exists())
         self.assertTrue(Path(music_path).exists())
         self.assertTrue(Path(intro_path).exists())
+        self.assertEqual(intro_status, "Spoken DJ intro generated.")
         self.assertIn("ACE-Step model call simulated", status)
         self.assertIn("Kokoro spoken-DJ model call simulated", status)
         self.assertIn("tiny-aya-global text model call simulated", status)
